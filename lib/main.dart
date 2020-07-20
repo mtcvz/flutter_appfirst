@@ -1,5 +1,78 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
-void main(){
+
+void main() {
+  runApp(MaterialApp(
+      theme:
+          ThemeData(primarySwatch: Colors.purple, accentColor: Colors.orange),
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              "Flutter Examples",
+              style: TextStyle(fontSize: 24.0, color: Colors.white),
+            ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              debugPrint("Tiklandi");
+            },
+            child: Icon(Icons.add, color: Colors.white),
+          ),
+          body: Column(
+            children: <Widget>[
+              Text(
+                "Resim ve Buton Turleri",
+                style: TextStyle(fontSize: 24.0),
+              ),
+              IntrinsicHeight(
+                child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                    color: Colors.red.shade200,
+                    child: Column(
+                      children: <Widget>[
+                        Image.asset("assets/images/example.png"),
+                        Text("Asset Image"),
+                      ],
+                    ),
+                  ),),
+                  Expanded(
+                    child:Container(
+                    color: Colors.red.shade200,
+                    child: Column(
+                      children: <Widget>[
+                        //Image.network("https://mediatrend.mediamarkt.com.tr/wp-content/uploads/2017/02/2017_subat_03.jpg"),
+                        FadeInImage.assetNetwork(placeholder: "assets/images/example.png",  // fadeinImage foto yuklenene kadar gecici fotoyu tutar.
+                            image: "https://mediatrend.mediamarkt.com.tr/wp-content/uploads/2017/02/2017_subat_03.jpg"),
+                        Text("Network Image"),
+                      ],
+                    ),
+                  ),),
+                  Expanded(
+                    child:Container(
+                    color: Colors.red.shade200,
+                    child: Column(
+                      children: <Widget>[
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundImage: AssetImage("assets/images/example.png"),
+                        ),
+                        Text("Circle Avatar"),
+                      ],
+                    ),
+                  ),
+                  ),
+                ],
+               ),
+              ),
+            ],
+          )))); //runapp
+}
+
+/*void main(){
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(primarySwatch: Colors.blue, accentColor: Colors.redAccent),
@@ -30,6 +103,7 @@ void main(){
         //alignment: Alignment.center,
         child: Row(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceAround ,
           children: <Widget>[
             Expanded(
             child:Icon(Icons.access_alarm),),
@@ -42,75 +116,5 @@ void main(){
       )
     ),
   ));
-}
-/*void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        bottomAppBarTheme: BottomAppBarTheme(color: Colors.amber) ,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-
-    return Scaffold(
-      appBar: AppBar(
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-
-        child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed button many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
 }
 */

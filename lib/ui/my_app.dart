@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_appfirst/ui/resim_buton_turleri.dart';
+import 'package:flutter_appfirst/ui/home_page.dart';
 
 class MyApp extends StatelessWidget{
   @override
@@ -7,7 +8,7 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
         theme:
         ThemeData(primarySwatch: Colors.purple, accentColor: Colors.orange),
-        home: Scaffold(
+        home:MyHomePage(),/*Scaffold(
             appBar: AppBar(
               title: Text(
                 "Flutter Examples",
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget{
               child: Icon(Icons.add, color: Colors.white),
             ),
             body: ResimveButonTurleri()
-        )
+        )*/
     );
   }
 }

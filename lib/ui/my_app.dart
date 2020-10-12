@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_appfirst/ui/list_page.dart';
+import 'package:flutter_appfirst/ui/navigation.dart';
 import 'package:flutter_appfirst/ui/resim_buton_turleri.dart';
 import 'package:flutter_appfirst/ui/home_page.dart';
+import 'package:flutter_appfirst/ui/login.dart';
 
 class MyApp extends StatelessWidget{
   @override
@@ -8,7 +11,8 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
         theme:
         ThemeData(primarySwatch: Colors.purple, accentColor: Colors.orange),
-        home:MyHomePage(),/*Scaffold(
+        home: liste_turleri()//Navigation()//MyHomePage(),//MyHomePage(),
+      /*Scaffold(
             appBar: AppBar(
               title: Text(
                 "Flutter Examples",
